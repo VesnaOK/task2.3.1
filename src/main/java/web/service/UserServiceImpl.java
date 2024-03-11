@@ -7,6 +7,7 @@ import web.dao.UserDao;
 import web.dao.UserDaoImp;
 import web.model.User;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,18 +28,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void saveUser(User user) {
         userDao.saveUser(user);
 
     }
 
     @Override
+    @Transactional
     public void deleteUserById(Long id) {
         userDao.deleteUserById(id);
 
     }
 
     @Override
+    @Transactional
     public void updateUserById(Long id, User user) {
         userDao.updateUserById(id, user);
 
